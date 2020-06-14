@@ -1,14 +1,25 @@
 package com.az.beechtalk.Models
 
-public class User{
-    fun SeName(s: String) {
-        this.Name = s;
-    }
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-    public var Name : String =""
-    val phoneNumber : String=""
-    val rating: Int=0
-    val topdp: String=""
-    val bottomDp : String=""
+@Entity(tableName = "user_table" )
+public data class User(
+@PrimaryKey(autoGenerate = true)
+    val userId: Long=0L,
+@ColumnInfo(name = "name")
+    var name : String ="",
+@ColumnInfo(name = "phoneNumber")
+    var phoneNumber : String="",
+@ColumnInfo(name = "rating")
 
-}
+    var rating: Int=0,
+@ColumnInfo(name = "topdp")
+
+    var topdp: String="",
+@ColumnInfo(name = "bottomDp")
+
+    var bottomDp : String=""
+
+)
