@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.az.beechtalk.BeechTalkDatabase
 import com.az.beechtalk.R
 import com.az.beechtalk.databinding.ProfileLayoutBinding
 import com.az.beechtalk.ui.main.PageViewModel
@@ -25,12 +26,18 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.profile_layout, container, false)
+        val application = requireNotNull(this.activity).application
+        val datasource = BeechTalkDatabase.getInstance(application)
+        val viewModelFactory = ProfileFragmentViewModelFactory(datasource.userdao,application)
+        val profileViewModel =
+            ViewModelProvider( this,viewModelFactory).get(ProfileFragmentViewModel::class.java)
+        binding.setLifecycleOwner(this)
+        binding.userProfile=profileViewModel
         return binding.root
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewmodel = ViewModelProvider(this).get(ProfileFragmentViewModel::class.java)
     }
 
     companion object {

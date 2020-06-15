@@ -9,9 +9,9 @@ public data class User(
 @PrimaryKey(autoGenerate = true)
     val userId: Long=0L,
 @ColumnInfo(name = "name")
-    var name : String ="",
+    var name : String ="shafaq",
 @ColumnInfo(name = "phoneNumber")
-    var phoneNumber : String="",
+    var phoneNumber : String="090",
 @ColumnInfo(name = "rating")
 
     var rating: Int=0,

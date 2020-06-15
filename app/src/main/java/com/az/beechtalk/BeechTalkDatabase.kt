@@ -15,7 +15,7 @@ abstract class BeechTalkDatabase:RoomDatabase() {
         //volatoile means dont cache it any change to it should be visible asap to all threads
         @Volatile
         private var INSTANCE: BeechTalkDatabase? = null
-        fun getInstance(context: Context): BeechTalkDatabase? {
+        fun getInstance(context: Context): BeechTalkDatabase {
             synchronized(this) {
                 var instance = INSTANCE
 
