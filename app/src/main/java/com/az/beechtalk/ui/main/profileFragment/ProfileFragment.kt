@@ -1,5 +1,6 @@
 package com.az.beechtalk.ui.main.profileFragment
 
+import android.content.Intent
 import android.database.DatabaseUtils
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,6 +15,7 @@ import com.az.beechtalk.R
 import com.az.beechtalk.databinding.ProfileLayoutBinding
 import com.az.beechtalk.ui.main.PageViewModel
 import com.az.beechtalk.ui.main.PlaceholderFragment
+import com.az.beechtalk.ui.main.editProfile.EditProfileActivity
 
 /**
  * A simple [Fragment] subclass.
@@ -39,7 +41,10 @@ class ProfileFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-
+fun OnEditProfile(){
+    val intent = Intent(this.context, EditProfileActivity::class.java)
+    startActivity(intent)
+}
     companion object {
         /**
          * The fragment argument representing the section number for this

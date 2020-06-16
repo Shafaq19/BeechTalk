@@ -35,7 +35,6 @@ uiscope.launch { _user.value = getUserfromDb() }
             User()
     }
     }
-
     override fun onCleared() {
         super.onCleared()
         //so that we dont have jobs that have no where to go
